@@ -249,6 +249,7 @@ class Swift_Card: UIView {
             let  moveWidth  = (gester.view!.center.x  - self.CardCenter.x);
             let  moveHeight = (gester.view!.center.y - self.CardCenter.y);
             finishedPanGesture(gesterView: gester.view!, direction: direction, scale:(moveWidth/moveHeight), diappear: fabs(widthRatio) > kBoundaryRatio)
+         
 
         }
         
@@ -290,6 +291,8 @@ class Swift_Card: UIView {
                 gesterView.removeFromSuperview()
 
             })
+            
+            Carddelegate?.tantan(tantan: self, didRemovedItemAtIndex: gesterView.tag + 1, direction:direction)
             
             self.viewArray.remove(at: self.viewArray.index(of: gesterView as! CardItemView)!)
             showmoving = false
@@ -362,9 +365,9 @@ protocol TanTanDataSource:NSObjectProtocol {
 }
 protocol TanTanDelegate:NSObjectProtocol {
     
-    func tantan(tantan:Swift_Card, didRemovedItemAtIndex index:NSInteger)->Void
-    func tantan(tantan:Swift_Card, didLeftRemovedItemAtIndex index:NSInteger)->Void
-    func tantan(tantan:Swift_Card, didRightRemovedItemAtIndex index:NSInteger)->Void
+    func tantan(tantan:Swift_Card, didRemovedItemAtIndex index:NSInteger, direction:Direction)->Void
+    
+  
     
 }
 

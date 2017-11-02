@@ -46,21 +46,22 @@ class ViewController: UIViewController,TanTanDataSource,TanTanDelegate {
         
         return item
         
+    }
+    
+    func tantan(tantan: Swift_Card, didRemovedItemAtIndex index: NSInteger,direction:Direction) {
+        if direction == .Left {
+            print("左划走的是第\(index)个")
+
+        }else{
+            
+            print("右划走的是第\(index)个")
+
+            
+        }
         
     }
     
-    func tantan(tantan: Swift_Card, didRemovedItemAtIndex index: NSInteger) {
-        
-        
-    }
-    
-    func tantan(tantan: Swift_Card, didLeftRemovedItemAtIndex index: NSInteger) {
-        
-        
-    }
-    func tantan(tantan: Swift_Card, didRightRemovedItemAtIndex index: NSInteger) {
-        
-    }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
